@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <script src="./jquery1.42.min.js"></script>
+    <script src="./resource/template/template.js"></script>
+</head>
+
+<body>
+    <form action="#" method='post'>
+        请输入城市名称：<input type="text" name="city" id="city" required />
+        <br>
+        <input type="button" value="搜素天气" onclick="return search()" />
+    </form>
+    <div id="result"></div>
+</body>
+<script id="tpl" type="text/html">
+    <h1 class="h1">城市：<%:=city%></h1>
+     <table class="table table-bordered" style="text-align:center">
+         <tr>
+             <td>日期</td>
+             <td>白天图</td>
+             <td>夜间图</td>
+             <td>天气状况</td>
+             <td>风力</td>
+             <td>温度</td>
+         </tr>
+         <% for(var i = 0; i < list.length; i ++){%>
+            <tr>
+                <td><%:=list[i].date%></td>
+                <td><img src="<%:=list[i].dayPictureUrl%>" alt=""> </td>
+                <td><img src="<%:=list[i].nightPictureUrl%>" alt=""> </td>
+                <td><%:=list[i].weather%></td>
+                <td><%:=list[i].wind%></td>
+                 <td><%:=list[i].temperature%></td>
+            </tr>
+        <% }%>
+     </table>
+</script>
+<script>
+    function showLocation(result) {
+
+        if (result.error == 0) {
+            var city = result.results[0]["currentCity"];
+            var weather_data = result.results[0]["weather_data"];
+            var data = {
+                list: weather_data,
+                city: city
+            };
+            var tpl = template($("#tpl").html(), data);
+            $("#result").html(tpl);
+            return false;
+        } else {
+            confirm("获取数据失败");
+        }
+    }
+
+
+    function search() {
+        var city = $("#city").val();
+        var url =
+            `http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=xbbPh7m3me5BlWUrCttGLNYz`;
+        $.ajax({
+            url: url,
+            type: "get",
+            dataType: 'jsonp',
+            jsonp: "callback",
+            jsonpCallback: "showLocation",
+        })
+
+    }
+</script>
+
+</html>
