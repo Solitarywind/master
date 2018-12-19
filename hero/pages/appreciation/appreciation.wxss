@@ -1,0 +1,27 @@
+  /**appreciation.wxss**/
+  
+  .conten {
+    padding: 10px;
+  }
+  
+  .meishu {
+    width: 100%;
+  }
+  
+  .meishuimg {
+    width: 100%;
+  }
+  
+  .jitem {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .item {
+    width: 48%;
+  }
+  
+  .itemimg {
+    width: 100%;
+    height: 110px
+  }

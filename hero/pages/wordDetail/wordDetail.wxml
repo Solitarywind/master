@@ -1,0 +1,17 @@
+<view class="contaner">
+    <view class="title">
+        <image class="titleimage" src="http://game.gtimg.cn/images/yxzj/act/a20161209story/btn-back2.png" />
+    </view>
+    <view class="content">
+        <scroll-view class="scrollBox" scroll-y>
+           <view class="listItem" wx:for="{{world}}" wx:key="index" wx:item="item">
+               <view class="time">
+                   {{item.time}}
+               </view>
+               <view class="itembox">
+                   <image class="itemimg" data-id="{{item.id}}" src="https:{{item.img}}" bindtap="toWord"/>
+               </view>
+           </view>
+        </scroll-view>
+    </view>
+</view>

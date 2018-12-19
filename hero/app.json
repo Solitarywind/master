@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/heroDetail/heroDetail",
+    "pages/word/word",
+    "pages/wordDetail/wordDetail",
+    "pages/wordItem/wordItem",
+    "pages/appreciation/appreciation",
+    "pages/skin/skin",
+    "pages/outer/outer",
+    "pages/music/music",
+    "pages/voice/voice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1d3549",
+    "navigationBarTitleText": "王者荣耀故事站",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#00baff",
+    "selectedColor": "#fff",
+    "borderStyle": "black",
+    "backgroundColor": "#1d3549",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "iconPath": "image/story-active.png",
+        "selectedIconPath": "image/story.png",
+        "text": "故事"
+      },
+      {
+        "pagePath": "pages/word/word",
+        "iconPath": "image/word-active.png",
+        "selectedIconPath": "image/word.png",
+        "text": "世界"
+      },
+      {
+        "pagePath": "pages/appreciation/appreciation",
+        "iconPath": "image/apprecation-active.png",
+        "selectedIconPath": "image/apprecation.png",
+        "text": "鉴赏"
+      }
+    ]
+
+  }
+}

@@ -1,0 +1,32 @@
+<view class="container">
+    <view style="color:#fff" hover-class="none" hover-stop-propagation="false">
+        <view class="hander">
+            <image class="fm" src="{{music.zjtp_35}}" />
+            <view class="rightBox">
+                <view class="main-title">
+                    <view class="" hover-class="none" hover-stop-propagation="false">王者荣耀</view>
+                    <view class="time">{{music.zjrq_97}}</view>
+                </view>
+                <view class="vicon">
+                    <image class="vicon" bindtap="playMain" src="https://game.gtimg.cn/images/yxzj/act/a20161209story/icon-play.png" />
+                </view>
+            </view>
+        </view>
+        <scroll-view scroll-y="true" class="scroll">
+            <view>
+                <view class="voiceItem" wx:for="{{music.yllb_38}}">
+                    <view class="voiceText">
+                        <text data-url="{{item.gq_db}}" bindtap="play">{{item.gqmc_45}}</text>
+                        <text class="mtext" data-url="{{item.gq_db}}" bindtap="play">
+                            {{item.gqsc_14}}
+                        </text>
+                    </view>
+                    <view class="voiceIcon" data-url="{{item.gq_db}}" bindtap="play"></view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view>
+        <audio poster="{{poster}}" name="{{name}}" src="{{src}}" id="myAudio"></audio>
+    </view>
+</view>

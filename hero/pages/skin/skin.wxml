@@ -1,0 +1,7 @@
+<view class="contation">
+   <view class="imglist">
+      <view class="item" wx:for="{{skin}}" wx:key="index" wx:item="item">
+         <image class="itemimg" src="https:{{item.img}}" data-index="{{index}}" bindtap="open"/>
+      </view>
+   </view>
+</view>

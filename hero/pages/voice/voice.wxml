@@ -1,0 +1,39 @@
+<view class="container">
+    <view class="page-section-spacing scrollH">
+        <scroll-view class="scroll-view_H" scroll-x="true" style="width:100%">
+            <view class="scroll-view-item_H" wx:for="{{heroNav}}" wx:key="index" wx:item="item">
+                <text class="{{index === navIndex ? 'navItem active':'navItem'}}" data-id="{{item.yxid_a7}}" data-index="{{index}}" bindtap="selectAear">
+                    {{item.YXMC_8f}}
+                </text>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="nodeData" wx:if="{{!detail.yxpfyy_fe}}">暂时没有数据</view>
+    <view wx:if="{{detail.yxpfyy_fe}}">
+        <view class="conten" wx:for="{{detail.yxpfyy_fe}}" wx:key="index" wx:item="item">
+            <view class="hero">
+                <image data-ite="{{navIndex}}" class="heroImage" src="{{item.pfbanner_ed}}" />
+                <view class="cvHero">
+                    <view class="heroText">
+                        <view class="heroname">{{detail.YXMC_8f}}</view>
+                        <view class="heroTitile">{{item.pfmc_ff}}</view>
+                    </view>
+                    <view>
+                        <view class="cvName">cv:{{main.yxcv_ff}}</view>
+                    </view>
+                </view>
+            </view>
+              <view>
+                <view class="voiceItem" wx:for="{{item.yylb1_c8}}" wx:for-item="sub" wx:for-index="j" wx:key="j">
+                    <view class="voiceText" data-url="{{sub.yyyp1_1f}}" bindtap="play">
+                        {{sub.yywa1_f2}}
+                    </view>
+                    <view class="voiceIcon" data-url="{{sub.yyyp1_1f}}" bindtap="play"> </view>
+                </view>
+            </view>
+        </view>
+    </view>
+     <view>
+        <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio"></audio>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+<view class="container">
+    <view class="conten">
+        <view class="word-item" wx:for="{{world}}" wx:key="key" wx:item="item">
+            <image class="word-img" src="{{item.text}}" data-to="{{item.disable}}" bindtap="toWord"></image>
+        </view>
+    </view>
+</view>

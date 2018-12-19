@@ -1,0 +1,27 @@
+<view class="container">
+    <view class="heroDetailBox">
+        <view hidden="{{isShow}}" class="emp">
+            <view class="emp-title">本故事纯属虚构</view>
+            <view class="history">
+                <image class="historyimag" bindtap="showHistory" wx:if="{{hero.historyTitle}}" src="https://game.gtimg.cn/images/yxzj/act/a20170405stroyhero/storyimg5.jpg"></image>
+            </view>
+        </view>
+        <view hidden="{{isShow}}" class="heroDetail">
+            <view class="heroName" wx:if="{{hero.heroName}}">
+              {{hero.heroName}}
+            </view>
+            <view wx:for="{{hero.heroDetail}}" wx:key="index" wx:item="item">
+              <view wx:if="{{item.type === 'img'}}">
+                  <image class="itemimg" data-item="{{item}}" src="{{item.text}}" bindtap="showImg"></image>
+              </view>
+              <view class="itemtext" wx:else>
+                  {{item.text}}
+              </view>
+            </view>
+        </view>
+        <view hidden="{{!isShow}}" class="showModal" bindtap="checkImage">
+            <view class="showModel-title">{{showInfo.title}}</view>
+            <image src="{{showInfo.img}}"></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,37 @@
+<view class="container">
+    <view class="nav">
+        <scroll-view class="scroll-view_H" scroll-x="true" style="width:100%">
+           <view style="display:flex" hover-class="none" hover-stop-propagation="false">
+               <view class="navitem main">
+                   <image class="mainimg" src="{{navTitle}}" bindtap="tapMain"/>
+                   <view class="navitem sub" wx:for="{{subNav}}" wx:key="index" wx:item="item">
+                       <view class="{{index === navIndex ? 'active':''}}" hover-class="none" hover-stop-propagation="false">
+                           <view class="part" data-index="{{index}}" bindtap="tapSub">
+                               part{{index + 1}}
+                           </view>
+                           <view class="parttitle" data-index="{{index}}" bindtap="tapSub">
+                                {{item.title}}
+                           </view>
+                       </view>
+                         
+                   </view>
+               </view>
+           </view>
+        </scroll-view>
+    </view>
+    <view class="content">
+        <view class="title">
+            {{constent.title}}
+        </view>
+        <view class="ctime" wx:if="{{constent.time}}">
+            {{constent.time}}
+        </view>
+        <view class="ccon">
+            <view class="citem" wx:for="{{constent.textContent}}" wx:key="index">
+               {{item}}
+            </view>
+            <view style="height:10px"></view>
+              
+        </view>
+    </view>
+</view>
